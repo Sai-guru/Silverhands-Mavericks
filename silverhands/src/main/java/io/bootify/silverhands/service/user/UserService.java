@@ -5,6 +5,8 @@ import io.bootify.silverhands.model.dto.CurrentUserDTO;
 import io.bootify.silverhands.model.dto.UserDTO;
 import io.bootify.silverhands.repos.user.UserRepository;
 import io.bootify.silverhands.util.exception.NotFoundException;
+import lombok.RequiredArgsConstructor;
+
 import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -15,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 @Service
+@RequiredArgsConstructor
 public class UserService {
 
     public static final String ROLE_PENDING = "ROLE_PENDING";
@@ -22,10 +25,6 @@ public class UserService {
     public static final String ROLE_PROVIDER = "PROVIDER";
 
     private final UserRepository userRepository;
-
-    public UserService(final UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
 
     @Transactional
     public User ensureFromOAuth(final OAuth2AuthenticationToken token) {

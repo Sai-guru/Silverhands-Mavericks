@@ -4,18 +4,17 @@ import io.bootify.silverhands.domain.user.User;
 import io.bootify.silverhands.model.dto.MessageDTO;
 import io.bootify.silverhands.model.dto.RealtimeChatInboundDTO;
 import io.bootify.silverhands.model.dto.RealtimeChatOutboundDTO;
-import java.util.UUID;
+import lombok.RequiredArgsConstructor;
+
+// import java.util.UUID;
 import org.springframework.stereotype.Service;
 
 
 @Service
+@RequiredArgsConstructor
 public class RealtimeChatService {
 
     private final MessageService messageService;
-
-    public RealtimeChatService(final MessageService messageService) {
-        this.messageService = messageService;
-    }
 
     public RealtimeChatOutboundDTO createAndMap(final RealtimeChatInboundDTO inboundDTO,
             final User senderUser) {
