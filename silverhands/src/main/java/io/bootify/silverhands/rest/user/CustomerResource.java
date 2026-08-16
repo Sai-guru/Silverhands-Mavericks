@@ -2,6 +2,8 @@ package io.bootify.silverhands.rest.user;
 
 import io.bootify.silverhands.model.dto.UserDTO;
 import io.bootify.silverhands.service.user.UserService;
+import lombok.RequiredArgsConstructor;
+
 import java.util.List;
 import java.util.UUID;
 import org.springframework.http.MediaType;
@@ -15,14 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 // customer discovery is only available to providers
 @RestController
+@RequiredArgsConstructor
 @RequestMapping(value = "/api/customers", produces = MediaType.APPLICATION_JSON_VALUE)
 public class CustomerResource {
 
     private final UserService userService;
-
-    public CustomerResource(final UserService userService) {
-        this.userService = userService;
-    }
 
     @GetMapping
     public ResponseEntity<List<UserDTO>> searchCustomers(

@@ -4,6 +4,8 @@ import io.bootify.silverhands.model.dto.ServiceDTO;
 import io.bootify.silverhands.service.catalog.ServiceService;
 import io.bootify.silverhands.service.user.UserService;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
+
 import java.util.List;
 import java.util.UUID;
 import org.springframework.http.HttpStatus;
@@ -22,16 +24,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping(value = "/api/services", produces = MediaType.APPLICATION_JSON_VALUE)
 public class ServiceResource {
 
     private final ServiceService serviceService;
     private final UserService userService;
-
-    public ServiceResource(final ServiceService serviceService, final UserService userService) {
-        this.serviceService = serviceService;
-        this.userService = userService;
-    }
 
     @GetMapping
     public ResponseEntity<List<ServiceDTO>> searchServices(

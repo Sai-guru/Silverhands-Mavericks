@@ -5,6 +5,8 @@ import io.bootify.silverhands.model.dto.MessageDTO;
 import io.bootify.silverhands.service.chat.ConversationService;
 import io.bootify.silverhands.service.chat.MessageService;
 import io.bootify.silverhands.service.user.UserService;
+import lombok.RequiredArgsConstructor;
+
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -21,19 +23,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping(value = "/api/conversations", produces = MediaType.APPLICATION_JSON_VALUE)
 public class ConversationResource {
 
     private final ConversationService conversationService;
     private final MessageService messageService;
     private final UserService userService;
-
-    public ConversationResource(final ConversationService conversationService,
-            final MessageService messageService, final UserService userService) {
-        this.conversationService = conversationService;
-        this.messageService = messageService;
-        this.userService = userService;
-    }
 
     @GetMapping
     public ResponseEntity<List<ConversationDTO>> getMyConversations(

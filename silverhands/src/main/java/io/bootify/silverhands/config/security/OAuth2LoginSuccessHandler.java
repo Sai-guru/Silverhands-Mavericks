@@ -4,6 +4,8 @@ import io.bootify.silverhands.service.user.UserService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.RequiredArgsConstructor;
+
 import java.io.IOException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
@@ -13,16 +15,13 @@ import org.springframework.stereotype.Component;
 
 
 @Component
+@RequiredArgsConstructor
 public class OAuth2LoginSuccessHandler implements AuthenticationSuccessHandler {
 
     private final UserService userService;
 
     @Value("${app.oauth2-redirect-url}")
     private String oauth2RedirectUrl;
-
-    public OAuth2LoginSuccessHandler(final UserService userService) {
-        this.userService = userService;
-    }
 
     @Override
     public void onAuthenticationSuccess(final HttpServletRequest request,

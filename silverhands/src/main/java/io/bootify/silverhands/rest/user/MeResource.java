@@ -5,6 +5,8 @@ import io.bootify.silverhands.model.dto.RoleSelectionDTO;
 import io.bootify.silverhands.model.dto.UserDTO;
 import io.bootify.silverhands.service.user.UserService;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -19,14 +21,11 @@ import org.springframework.web.server.ResponseStatusException;
 
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping(value = "/api/me", produces = MediaType.APPLICATION_JSON_VALUE)
 public class MeResource {
 
     private final UserService userService;
-
-    public MeResource(final UserService userService) {
-        this.userService = userService;
-    }
 
     @GetMapping
     public ResponseEntity<CurrentUserDTO> getCurrentUser(

@@ -6,6 +6,8 @@ import io.bootify.silverhands.model.dto.ConversationDTO;
 import io.bootify.silverhands.repos.chat.ConversationRepository;
 import io.bootify.silverhands.repos.user.UserRepository;
 import io.bootify.silverhands.util.exception.NotFoundException;
+import lombok.RequiredArgsConstructor;
+
 import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.UUID;
@@ -16,17 +18,12 @@ import org.springframework.web.server.ResponseStatusException;
 
 
 @Service
+@RequiredArgsConstructor
 @Transactional(rollbackFor = Exception.class)
 public class ConversationService {
 
     private final ConversationRepository conversationRepository;
     private final UserRepository userRepository;
-
-    public ConversationService(final ConversationRepository conversationRepository,
-            final UserRepository userRepository) {
-        this.conversationRepository = conversationRepository;
-        this.userRepository = userRepository;
-    }
 
     @Transactional(readOnly = true)
     public List<ConversationDTO> findMyConversations(final User currentUser) {

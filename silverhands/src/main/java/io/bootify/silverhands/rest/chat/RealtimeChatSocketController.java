@@ -5,6 +5,8 @@ import io.bootify.silverhands.model.dto.RealtimeChatOutboundDTO;
 import io.bootify.silverhands.service.chat.RealtimeChatService;
 import io.bootify.silverhands.service.user.UserService;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
+
 import java.security.Principal;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
@@ -13,18 +15,12 @@ import org.springframework.stereotype.Controller;
 
 
 @Controller
+@RequiredArgsConstructor
 public class RealtimeChatSocketController {
 
     private final RealtimeChatService realtimeChatService;
     private final UserService userService;
     private final SimpMessagingTemplate messagingTemplate;
-
-    public RealtimeChatSocketController(final RealtimeChatService realtimeChatService,
-            final UserService userService, final SimpMessagingTemplate messagingTemplate) {
-        this.realtimeChatService = realtimeChatService;
-        this.userService = userService;
-        this.messagingTemplate = messagingTemplate;
-    }
 
     @MessageMapping("/chat.send")
     public void sendMessage(@Valid final RealtimeChatInboundDTO inboundDTO,

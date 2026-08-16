@@ -5,6 +5,8 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.RequiredArgsConstructor;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -24,13 +26,10 @@ import org.springframework.web.filter.OncePerRequestFilter;
  * hasRole(...) checks in SecurityConfig work with session-based OAuth2 login.
  */
 @Component
+@RequiredArgsConstructor
 public class SecurityContextEnricherFilter extends OncePerRequestFilter {
 
     private final UserService userService;
-
-    public SecurityContextEnricherFilter(final UserService userService) {
-        this.userService = userService;
-    }
 
     @Override
     protected void doFilterInternal(final HttpServletRequest request,

@@ -5,6 +5,8 @@ import io.bootify.silverhands.domain.chat.Message;
 import io.bootify.silverhands.domain.user.User;
 import io.bootify.silverhands.model.dto.MessageDTO;
 import io.bootify.silverhands.repos.chat.MessageRepository;
+import lombok.RequiredArgsConstructor;
+
 import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.UUID;
@@ -13,17 +15,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 @Service
+@RequiredArgsConstructor
 @Transactional(rollbackFor = Exception.class)
 public class MessageService {
 
     private final MessageRepository messageRepository;
     private final ConversationService conversationService;
-
-    public MessageService(final MessageRepository messageRepository,
-            final ConversationService conversationService) {
-        this.messageRepository = messageRepository;
-        this.conversationService = conversationService;
-    }
 
     @Transactional(readOnly = true)
     public List<MessageDTO> findMessages(final User currentUser, final UUID conversationId) {

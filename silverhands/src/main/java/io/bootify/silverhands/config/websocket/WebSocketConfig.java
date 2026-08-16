@@ -1,6 +1,8 @@
 package io.bootify.silverhands.config.websocket;
 
 import io.bootify.silverhands.config.security.AuthHandshakeInterceptor;
+import lombok.RequiredArgsConstructor;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.ChannelRegistration;
@@ -12,6 +14,7 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 
 @Configuration
 @EnableWebSocketMessageBroker
+@RequiredArgsConstructor
 public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     private final AuthHandshakeInterceptor authHandshakeInterceptor;
@@ -19,12 +22,6 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     @Value("${cors.allowed-origins}")
     private String allowedOrigins;
-
-    public WebSocketConfig(final AuthHandshakeInterceptor authHandshakeInterceptor,
-            final WebSocketChannelInterceptor webSocketChannelInterceptor) {
-        this.authHandshakeInterceptor = authHandshakeInterceptor;
-        this.webSocketChannelInterceptor = webSocketChannelInterceptor;
-    }
 
     @Override
     public void configureMessageBroker(final MessageBrokerRegistry registry) {

@@ -4,6 +4,8 @@ import io.bootify.silverhands.model.dto.ProductDTO;
 import io.bootify.silverhands.service.catalog.ProductService;
 import io.bootify.silverhands.service.user.UserService;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
+
 import java.util.List;
 import java.util.UUID;
 import org.springframework.http.HttpStatus;
@@ -22,16 +24,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping(value = "/api/products", produces = MediaType.APPLICATION_JSON_VALUE)
 public class ProductResource {
 
     private final ProductService productService;
     private final UserService userService;
-
-    public ProductResource(final ProductService productService, final UserService userService) {
-        this.productService = productService;
-        this.userService = userService;
-    }
 
     @GetMapping
     public ResponseEntity<List<ProductDTO>> searchProducts(
