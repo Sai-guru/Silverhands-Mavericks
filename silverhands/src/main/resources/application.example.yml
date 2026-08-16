@@ -1,0 +1,80 @@
+spring:
+  application:
+    name: silverhands
+
+  datasource:
+    url: jdbc:postgresql://<your-database-url-here>
+    username: <your-username-here>
+    password: <your-password-here>
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
+      connection-timeout: 30000
+      validation-timeout: 3000
+      idle-timeout: 60000        # 1 minute
+      max-lifetime: 300000       # 5 minutes
+      keepalive-time: 30000      # prevents Neon idle close
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          lob:
+            non_contextual_creation: true
+        id:
+          new_generator_mappings: true
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: <your-client-id-here>
+            client-secret: <your-client-secret-here>
+            redirect-uri: http://localhost:8000/login/oauth2/code/google
+            scope:
+              - openid
+              - profile
+              - email
+        provider:
+          google:
+            authorization-uri: https://accounts.google.com/o/oauth2/v2/auth
+            token-uri: https://oauth2.googleapis.com/token
+            user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
+
+server:
+  port: 8000
+  servlet:
+    session:
+      timeout: 30m
+
+error:
+  handling:
+    http-status-in-json-response: true
+    exception-logging: NO_LOGGING
+    full-stacktrace-http-statuses: 5xx
+    log-levels:
+      5xx: ERROR
+
+springdoc:
+  pathsToMatch: /, /api/**
+
+cors:
+  allowed-origins: http://localhost:5173
+
+app:
+  oauth2-redirect-url: http://localhost:5173/auth/callback
+  ai:
+    openrouter:
+      # Get your key at https://openrouter.ai/keys (sk-or-v1-...)
+      api-key: <your-api-key-here>
+      base-url: https://openrouter.ai/api/v1
+      model: nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free
+      temperature: 0.7
+      max-tokens: 4096
+      recommendation-limit: 5
