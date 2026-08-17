@@ -59,7 +59,7 @@
     "serviceName": "Service name",
     "description": "Description",
     "category": "Category",
-    "pricePerHour": "Price per hour",
+    "phoneNumber": "Phone number",
     "productName": "Product name",
     "price": "Price",
     "imageUrl": "Image URL",

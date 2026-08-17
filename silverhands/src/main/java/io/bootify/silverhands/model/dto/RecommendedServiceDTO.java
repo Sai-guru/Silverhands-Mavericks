@@ -1,6 +1,5 @@
 package io.bootify.silverhands.model.dto;
 
-import java.math.BigDecimal;
 import java.util.UUID;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,6 +23,6 @@ public class RecommendedServiceDTO {
 
     private String area;
 
-    private BigDecimal pricePerHour;
+    private String phoneNumber;
 
 }

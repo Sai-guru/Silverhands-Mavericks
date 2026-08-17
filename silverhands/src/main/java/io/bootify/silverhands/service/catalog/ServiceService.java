@@ -86,7 +86,7 @@ public class ServiceService {
         service.setName(dto.getName());
         service.setDescription(dto.getDescription());
         service.setCategory(dto.getCategory());
-        service.setPricePerHour(dto.getPricePerHour());
+        service.setPhoneNumber(dto.getPhoneNumber());
         service.setArea(dto.getArea());
         service.setAvailableFrom(dto.getAvailableFrom());
         service.setAvailableTo(dto.getAvailableTo());
@@ -105,7 +105,7 @@ public class ServiceService {
         dto.setName(service.getName());
         dto.setDescription(service.getDescription());
         dto.setCategory(service.getCategory());
-        dto.setPricePerHour(service.getPricePerHour());
+        dto.setPhoneNumber(service.getPhoneNumber());
         dto.setArea(service.getArea());
         dto.setAvailableFrom(service.getAvailableFrom());
         dto.setAvailableTo(service.getAvailableTo());

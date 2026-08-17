@@ -86,7 +86,7 @@ export function AiChatPage() {
               {result.recommendedServices.map((service) => (
                 <li key={service.serviceId ?? service.id}>
                   {service.name ?? service.serviceName} · {service.area ?? ''}{' '}
-                  {service.pricePerHour ?? service.hourlyRate ?? ''}
+                  {service.phoneNumber ?? ''}
                 </li>
               ))}
             </ul>

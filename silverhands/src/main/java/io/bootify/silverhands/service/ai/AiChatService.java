@@ -72,7 +72,7 @@ public class AiChatService {
                                 .map(item -> "- " + item.getName() + " | providerId: "
                                         + item.getProviderId() + " | serviceId: "
                                         + item.getServiceId() + " | " + item.getArea()
-                                        + " | rate: " + item.getPricePerHour() + " per hour")
+                                        + " | phone: " + item.getPhoneNumber())
                                 .collect(Collectors.joining("\n")));
     }
 

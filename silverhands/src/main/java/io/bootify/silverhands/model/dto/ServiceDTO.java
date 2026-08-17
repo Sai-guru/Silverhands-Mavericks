@@ -24,9 +24,8 @@ public class ServiceDTO {
 
     private String category;
 
-    @NotNull
-    @Positive
-    private BigDecimal pricePerHour;
+    @NotBlank
+    private String phoneNumber;
 
     @NotBlank
     private String area;

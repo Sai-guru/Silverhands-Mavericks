@@ -39,8 +39,8 @@ public class Service {
     @Column(columnDefinition = "text")
     private String category;
 
-    @Column(nullable = false, precision = 10, scale = 2)
-    private BigDecimal pricePerHour;
+    @Column(nullable = false, columnDefinition = "text")
+    private String phoneNumber;
 
     @Column(nullable = false, columnDefinition = "text")
     private String area;

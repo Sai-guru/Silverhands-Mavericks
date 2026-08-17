@@ -56,7 +56,7 @@
     "serviceName": "सेवा का नाम",
     "description": "विवरण",
     "category": "श्रेणी",
-    "pricePerHour": "प्रति घंटे की कीमत",
+    "phoneNumber": "फ़ोन नंबर",
     "productName": "उत्पाद का नाम",
     "price": "कीमत",
     "imageUrl": "इमेज URL",

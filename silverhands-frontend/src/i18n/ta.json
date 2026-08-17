@@ -59,7 +59,7 @@
     "serviceName": "சேவை பெயர்",
     "description": "விளக்கம்",
     "category": "வகை",
-    "pricePerHour": "ஒரு மணி நேரத்திற்கான விலை",
+    "phoneNumber": "தொலைபேசி எண்",
     "productName": "தயாரிப்பு பெயர்",
     "price": "விலை",
     "imageUrl": "பட URL",

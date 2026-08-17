@@ -36,7 +36,7 @@ public class AiRecommendationService {
         recommendation.setDescription(service.getDescription());
         recommendation.setCategory(service.getCategory());
         recommendation.setArea(service.getArea());
-        recommendation.setPricePerHour(service.getPricePerHour());
+        recommendation.setPhoneNumber(service.getPhoneNumber());
         return recommendation;
     }
 

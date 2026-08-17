@@ -28,8 +28,7 @@ export interface RecommendedService {
   description?: string | null
   category?: string | null
   area?: string | null
-  pricePerHour?: number | string | null
-  hourlyRate?: number | string | null
+  phoneNumber?: string | null
 }
 
 export interface AiChatResponse {
