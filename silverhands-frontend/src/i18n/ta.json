@@ -1,0 +1,100 @@
+{
+  "common": {
+    "home": "முகப்பு",
+    "login": "உள்நுழைவு",
+    "logout": "வெளியேறு",
+    "send": "அனுப்பு",
+    "clear": "தெளி",
+    "cancel": "ரத்து செய்",
+    "save": "சேமி",
+    "delete": "நீக்கு",
+    "edit": "திருத்து",
+    "loading": "ஏற்றுகிறது...",
+    "message": "செய்தி",
+    "refresh": "புதுப்பி",
+    "search": "தேடு",
+    "applyFilters": "வடிகட்டிகளைப் பயன்படுத்து",
+    "actions": "செயல்கள்",
+    "chat": "அரட்டை",
+    "liveChat": "நேரடி அரட்டை",
+    "noRows": "பதிவுகள் எதுவும் இல்லை",
+    "editRecord": "பதிவைத் திருத்து",
+    "createRecord": "பதிவை உருவாக்கு",
+    "saveChanges": "மாற்றங்களைச் சேமி",
+    "create": "உருவாக்கு",
+    "reply": "பதில்",
+    "customer": "வாடிக்கையாளர்",
+    "serviceProvider": "சேவை வழங்குநர்",
+    "checkingSession": "அமர்வைச் சரிபார்க்கிறது...",
+"language": "மொழி"
+  },
+  "login": {
+  "title": "வாடிக்கையாளர் அல்லது சேவை வழங்குநராக நுழையுங்கள்",
+  "description": "பயன்பாட்டை எவ்வாறு பயன்படுத்த விரும்புகிறீர்கள் என்பதைத் தேர்ந்தெடுக்கவும். ஒரு விருப்பத்தைத் தேர்ந்தெடுக்கும் வரை Google மூலம் தொடரும் விருப்பம் முடக்கப்பட்டிருக்கும்.",
+  "customer": "வாடிக்கையாளர்",
+  "customerDescription": "சேவைகளைக் கண்டறிந்து, சேமித்து, மதிப்புரைகளை வழங்குங்கள்",
+  "serviceProvider": "சேவை வழங்குநர்",
+  "serviceProviderDescription": "உங்கள் சேவைகள் மற்றும் தயாரிப்புகளைப் பட்டியலிடுங்கள்",
+  "continueWithGoogle": "Google மூலம் தொடரவும்"
+},
+
+  "home": {
+    "welcome": "வரவேற்கிறோம்",
+    "signedInAs": "உள்நுழைந்துள்ளீர்கள்",
+    "customer": "வாடிக்கையாளராக",
+    "serviceProvider": "சேவை வழங்குநராக",
+    "openPage": "தொடர்புடைய backend வழியை அழைக்க ஒரு பக்கத்தைத் திறக்கவும்.",
+    "userId": "பயனர் ID"
+  },
+
+  "resources": {
+    "serviceProviders": "சேவை வழங்குநர்கள்",
+    "browseServices": "சேவைகளைப் பார்க்கவும்",
+    "browseProducts": "தயாரிப்புகளைப் பார்க்கவும்",
+    "myServices": "எனது சேவைகள்",
+    "myProducts": "எனது தயாரிப்புகள்",
+    "name": "பெயர்",
+    "email": "மின்னஞ்சல்",
+    "area": "பகுதி",
+    "serviceName": "சேவை பெயர்",
+    "description": "விளக்கம்",
+    "category": "வகை",
+    "pricePerHour": "ஒரு மணி நேரத்திற்கான விலை",
+    "productName": "தயாரிப்பு பெயர்",
+    "price": "விலை",
+    "imageUrl": "பட URL",
+    "availableFrom": "கிடைக்கும் நேரம் முதல்",
+    "availableTo": "கிடைக்கும் நேரம் வரை"
+  },
+
+  "aiChat": {
+    "title": "AI அரட்டை",
+    "endpoint": "POST /api/ai/chat"
+  },
+
+  "filters": {
+    "area": "பகுதி",
+    "category": "வகை",
+    "providerName": "சேவை வழங்குநரின் பெயர்"
+  },
+
+  "auth": {
+    "couldNotFinishSignIn": "உள்நுழைவை முடிக்க முடியவில்லை",
+    "googleSignInFailed": "Google உள்நுழைவில் அமர்வு உருவாக்கப்படவில்லை. மீண்டும் முயற்சிக்கவும்.",
+    "chooseRole": "உள்நுழைவு பக்கத்தில் வாடிக்கையாளர் அல்லது சேவை வழங்குநரைத் தேர்ந்தெடுத்து, Google மூலம் தொடரவும்.",
+    "couldNotSetRole": "பங்கை அமைக்க முடியவில்லை",
+    "backToLogin": "உள்நுழைவுக்குத் திரும்பு",
+    "finishingGoogleSignIn": "Google உள்நுழைவு முடிவடைகிறது..."
+  },
+
+  "aiChat": {
+    "title": "AI அரட்டை",
+    "endpoint": "POST /api/ai/chat"
+  },
+
+  "filters": {
+    "area": "பகுதி",
+    "category": "வகை",
+    "providerName": "சேவை வழங்குநரின் பெயர்"
+  }
+}

@@ -15,6 +15,19 @@
   background: var(--bg);
 }
 
+/* 🌙 Soft dark theme */
+[data-theme="dark"] {
+  --bg: #12161c;
+  --panel: #1b2129;
+  --ink: #e7e9ec;
+  --muted: #9aa3ad;
+  --line: #303842;
+  --accent: #e8793f;
+  --accent-ink: #fff;
+  --ok: #4caf7a;
+  --err: #ef6b63;
+}
+
 * { box-sizing: border-box; }
 html, body, #root { margin: 0; min-height: 100%; }
 #root { width: 100%; }
@@ -48,7 +61,7 @@ a { color: var(--accent); }
 .choices { display: grid; gap: 10px; margin: 20px 0; }
 .choice, button {
   border: 1px solid var(--line);
-  background: #fff;
+  background: var(--panel);
   border-radius: 12px;
   padding: 12px 14px;
   text-align: left;
@@ -74,7 +87,11 @@ button:disabled { opacity: 0.45; cursor: not-allowed; }
 .banner.ok { background: #e7f6ee; color: var(--ok); }
 
 .shell { display: grid; grid-template-columns: 240px 1fr; min-height: 100svh; }
-aside { border-right: 1px solid var(--line); padding: 20px 16px; background: #fbf8f3; }
+aside {
+  border-right: 1px solid var(--line);
+  padding: 20px 16px;
+  background: var(--panel);          /* was hardcoded #fbf8f3 */
+}
 .brand { margin: 0; font-weight: 700; }
 aside nav { display: grid; gap: 4px; margin-top: 18px; }
 aside a {
@@ -83,7 +100,7 @@ aside a {
   padding: 8px 10px;
   border-radius: 8px;
 }
-aside a.active, aside a:hover { background: #efe8de; }
+aside a.active, aside a:hover { background: var(--line); }  /* was hardcoded #efe8de */
 .main { display: flex; flex-direction: column; min-width: 0; }
 .topbar {
   display: flex;
@@ -92,6 +109,7 @@ aside a.active, aside a:hover { background: #efe8de; }
   gap: 12px;
   padding: 12px 20px;
   border-bottom: 1px solid var(--line);
+  background: var(--panel);
 }
 .who { display: flex; align-items: center; gap: 10px; }
 .who img { border-radius: 50%; }
@@ -106,7 +124,7 @@ input, textarea, select {
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 8px 10px;
-  background: #fff;
+  background: var(--panel);          /* was hardcoded #fff */
   color: var(--ink);
 }
 textarea { min-height: 80px; resize: vertical; }
@@ -138,7 +156,7 @@ th, td { border-bottom: 1px solid var(--line); padding: 8px; text-align: left; v
 .chat-shell {
   display: grid;
   grid-template-columns: 260px 1fr;
-  height: calc(100svh - 57px); /* subtract topbar */
+  height: calc(100svh - 57px);
   overflow: hidden;
 }
 
@@ -186,8 +204,8 @@ th, td { border-bottom: 1px solid var(--line); padding: 8px; text-align: left; v
   margin-bottom: 4px;
   line-height: 1.35;
 }
-.conv-item:hover { background: #efe8de; border-color: var(--line); }
-.conv-item--active { background: #efe8de; border-color: var(--accent) !important; box-shadow: 0 0 0 2px rgba(196,92,38,.15); }
+.conv-item:hover { background: var(--line); border-color: var(--line); }         /* was #efe8de */
+.conv-item--active { background: var(--line); border-color: var(--accent) !important; box-shadow: 0 0 0 2px rgba(196,92,38,.15); }  /* was #efe8de */
 .conv-id   { display: block; font-family: var(--mono); font-size: 12px; font-weight: 600; color: var(--ink); }
 .conv-meta { display: block; font-size: 11px; color: var(--muted); margin-top: 2px; }
 
@@ -274,6 +292,8 @@ th, td { border-bottom: 1px solid var(--line); padding: 8px; text-align: left; v
   padding: 10px 16px;
   border: 1px solid var(--line);
   font-size: 14px;
+  background: var(--bg);             /* was inheriting #fff */
+  color: var(--ink);
 }
 .chat-send-btn {
   width: auto;

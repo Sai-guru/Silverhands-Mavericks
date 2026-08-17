@@ -1,0 +1,86 @@
+{
+  "common": {
+    "home": "होम",
+    "login": "लॉगिन",
+    "logout": "लॉगआउट",
+    "send": "भेजें",
+    "clear": "साफ़ करें",
+    "cancel": "रद्द करें",
+    "save": "सहेजें",
+    "delete": "हटाएँ",
+    "edit": "संपादित करें",
+    "loading": "लोड हो रहा है...",
+    "message": "संदेश",
+    "refresh": "रिफ्रेश करें",
+    "search": "खोजें",
+    "applyFilters": "फ़िल्टर लागू करें",
+    "actions": "क्रियाएँ",
+    "chat": "चैट",
+    "noRows": "अभी कोई रिकॉर्ड नहीं है",
+    "editRecord": "रिकॉर्ड संपादित करें",
+    "createRecord": "रिकॉर्ड बनाएँ",
+    "saveChanges": "परिवर्तन सहेजें",
+    "create": "बनाएँ",
+    "reply": "उत्तर",
+    "welcome": "स्वागत है",
+  "signedInAs": "आप लॉगिन हैं",
+  "customer": "ग्राहक के रूप में",
+  "serviceProvider": "सेवा प्रदाता के रूप में",
+  "openPage": "संबंधित backend route को कॉल करने के लिए एक पेज खोलें।",
+  "userId": "यूज़र ID",
+  "liveChat": "लाइव चैट",
+"customer": "ग्राहक",
+"serviceProvider": "सेवा प्रदाता",
+"checkingSession": "सेशन की जाँच हो रही है...",
+"language": "भाषा"
+  },
+  "login": {
+  "title": "ग्राहक या सेवा प्रदाता के रूप में प्रवेश करें",
+  "description": "चुनें कि आप ऐप का उपयोग कैसे करना चाहते हैं। जब तक कोई विकल्प नहीं चुना जाता, Google के साथ जारी रखने का विकल्प बंद रहेगा।",
+  "customer": "ग्राहक",
+  "customerDescription": "सेवाएँ खोजें, उन्हें सेव करें और समीक्षा दें",
+  "serviceProvider": "सेवा प्रदाता",
+  "serviceProviderDescription": "अपनी सेवाएँ और उत्पाद सूचीबद्ध करें",
+  "continueWithGoogle": "Google के साथ जारी रखें"
+},
+
+  "resources": {
+    "serviceProviders": "सेवा प्रदाता",
+    "browseServices": "सेवाएँ देखें",
+    "browseProducts": "उत्पाद देखें",
+    "myServices": "मेरी सेवाएँ",
+    "myProducts": "मेरे उत्पाद",
+    "name": "नाम",
+    "email": "ईमेल",
+    "area": "क्षेत्र",
+    "serviceName": "सेवा का नाम",
+    "description": "विवरण",
+    "category": "श्रेणी",
+    "pricePerHour": "प्रति घंटे की कीमत",
+    "productName": "उत्पाद का नाम",
+    "price": "कीमत",
+    "imageUrl": "इमेज URL",
+    "availableFrom": "उपलब्ध समय से",
+    "availableTo": "उपलब्ध समय तक"
+  },
+
+  "auth": {
+    "couldNotFinishSignIn": "साइन-इन पूरा नहीं किया जा सका",
+    "googleSignInFailed": "Google साइन-इन से सेशन नहीं बना। फिर से प्रयास करें।",
+    "chooseRole": "लॉगिन पेज पर ग्राहक या सेवा प्रदाता चुनें, फिर Google के साथ जारी रखें।",
+    "couldNotSetRole": "भूमिका सेट नहीं की जा सकी",
+    "backToLogin": "लॉगिन पर वापस जाएँ",
+    "finishingGoogleSignIn": "Google साइन-इन पूरा हो रहा है..."
+  },
+
+  "aiChat": {
+    "title": "AI चैट",
+    "endpoint": "POST /api/ai/chat"
+  },
+
+  "filters": {
+    "area": "क्षेत्र",
+    "category": "श्रेणी",
+    "providerName": "सेवा प्रदाता का नाम"
+  }
+}

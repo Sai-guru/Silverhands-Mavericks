@@ -1,0 +1,100 @@
+{
+  "common": {
+    "home": "Home",
+    "login": "Login",
+    "logout": "Logout",
+    "send": "Send",
+    "clear": "Clear",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "loading": "Loading...",
+    "message": "Message",
+    "refresh": "Refresh",
+    "search": "Search",
+    "applyFilters": "Apply filters",
+    "actions": "Actions",
+    "chat": "Chat",
+    "liveChat": "Live chat",
+    "noRows": "No rows yet",
+    "editRecord": "Edit record",
+    "createRecord": "Create record",
+    "saveChanges": "Save changes",
+    "create": "Create",
+    "reply": "Reply",
+    "customer": "Customer",
+    "serviceProvider": "Service provider",
+    "checkingSession": "Checking session...",
+"language": "Language"
+  },
+  "login": {
+  "title": "Enter as a customer or a service provider",
+  "description": "Choose how you want to use the app. Continue with Google stays off until one option is selected.",
+  "customer": "Customer",
+  "customerDescription": "Find services, save them, leave reviews",
+  "serviceProvider": "Service provider",
+  "serviceProviderDescription": "List your services and products",
+  "continueWithGoogle": "Continue with Google"
+},
+
+  "home": {
+    "welcome": "Welcome",
+    "signedInAs": "Signed in as",
+    "customer": "a customer",
+    "serviceProvider": "a service provider",
+    "openPage": "Open a page to call the matching backend route.",
+    "userId": "User ID"
+  },
+
+  "resources": {
+    "serviceProviders": "Service providers",
+    "browseServices": "Browse services",
+    "browseProducts": "Browse products",
+    "myServices": "My services",
+    "myProducts": "My products",
+    "name": "Name",
+    "email": "Email",
+    "area": "Area",
+    "serviceName": "Service name",
+    "description": "Description",
+    "category": "Category",
+    "pricePerHour": "Price per hour",
+    "productName": "Product name",
+    "price": "Price",
+    "imageUrl": "Image URL",
+    "availableFrom": "Available from",
+    "availableTo": "Available to"
+  },
+
+  "aiChat": {
+    "title": "AI chat",
+    "endpoint": "POST /api/ai/chat"
+  },
+
+  "filters": {
+    "area": "Area",
+    "category": "Category",
+    "providerName": "Provider name"
+  },
+
+  "auth": {
+    "couldNotFinishSignIn": "Could not finish sign-in",
+    "googleSignInFailed": "Google sign-in did not create a session. Try again.",
+    "chooseRole": "Choose customer or service provider on the login page, then continue with Google.",
+    "couldNotSetRole": "Could not set role",
+    "backToLogin": "Back to login",
+    "finishingGoogleSignIn": "Finishing Google sign-in..."
+  },
+
+  "aiChat": {
+    "title": "AI chat",
+    "endpoint": "POST /api/ai/chat"
+  },
+
+  "filters": {
+    "area": "Area",
+    "category": "Category",
+    "providerName": "Provider name"
+  }
+}

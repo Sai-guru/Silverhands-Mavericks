@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Navigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { GOOGLE_LOGIN_URL, INTENDED_ROLE_KEY } from '../api/config'
 import type { AppRole } from '../api/types'
 import { useAuth } from '../auth/AuthContext'
@@ -7,13 +8,18 @@ import { homePathForRole } from '../auth/paths'
 
 export function LoginPage() {
   const { user, loading } = useAuth()
+  const { t, i18n } = useTranslation()
   const [role, setRole] = useState<AppRole | null>(null)
 
   if (loading) {
-    return <p className="center muted">Checking session…</p>
+    return <p className="center muted">{t('common.checkingSession')}</p>
   }
 
-  if (user && !user.roleSelectionRequired && (user.role === 'CUSTOMER' || user.role === 'PROVIDER')) {
+  if (
+    user &&
+    !user.roleSelectionRequired &&
+    (user.role === 'CUSTOMER' || user.role === 'PROVIDER')
+  ) {
     return <Navigate to={homePathForRole(user.role)} replace />
   }
 
@@ -21,6 +27,7 @@ export function LoginPage() {
     if (!role) {
       return
     }
+
     sessionStorage.setItem(INTENDED_ROLE_KEY, role)
     window.location.assign(GOOGLE_LOGIN_URL)
   }
@@ -28,11 +35,24 @@ export function LoginPage() {
   return (
     <main className="auth">
       <div className="card">
+        <div className="language-selector">
+          {/* <select
+            value={i18n.language}
+            onChange={(event) => void i18n.changeLanguage(event.target.value)}
+            aria-label={t('common.language')}
+          >
+            <option value="en">English</option>
+            <option value="ta">தமிழ்</option>
+            <option value="hi">हिन्दी</option>
+          </select> */}
+        </div>
+
         <p className="eyebrow">SilverHands</p>
-        <h1>Enter as a customer or a service provider</h1>
+
+        <h1>{t('login.title')}</h1>
+
         <p className="muted">
-          Choose how you want to use the app. Continue with Google stays off until one option is
-          selected.
+          {t('login.description')}
         </p>
 
         <div className="choices">
@@ -41,21 +61,26 @@ export function LoginPage() {
             className={role === 'CUSTOMER' ? 'choice selected' : 'choice'}
             onClick={() => setRole('CUSTOMER')}
           >
-            <strong>Customer</strong>
-            <span>Find services, save them, leave reviews</span>
+            <strong>{t('login.customer')}</strong>
+            <span>{t('login.customerDescription')}</span>
           </button>
+
           <button
             type="button"
             className={role === 'PROVIDER' ? 'choice selected' : 'choice'}
             onClick={() => setRole('PROVIDER')}
           >
-            <strong>Service provider</strong>
-            <span>List your services and products</span>
+            <strong>{t('login.serviceProvider')}</strong>
+            <span>{t('login.serviceProviderDescription')}</span>
           </button>
         </div>
 
-        <button type="button" disabled={!role} onClick={continueWithGoogle}>
-          Continue with Google
+        <button
+          type="button"
+          disabled={!role}
+          onClick={continueWithGoogle}
+        >
+          {t('login.continueWithGoogle')}
         </button>
       </div>
     </main>
