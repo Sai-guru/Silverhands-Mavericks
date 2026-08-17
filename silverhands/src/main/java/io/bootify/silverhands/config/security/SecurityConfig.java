@@ -17,8 +17,11 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import lombok.RequiredArgsConstructor;
+
 
 @Configuration
+@RequiredArgsConstructor
 public class SecurityConfig {
 
     private final OAuth2LoginSuccessHandler oauth2LoginSuccessHandler;
@@ -26,12 +29,6 @@ public class SecurityConfig {
 
     @Value("${cors.allowed-origins}")
     private String allowedOrigins;
-
-    public SecurityConfig(final OAuth2LoginSuccessHandler oauth2LoginSuccessHandler,
-            final SecurityContextEnricherFilter securityContextEnricherFilter) {
-        this.oauth2LoginSuccessHandler = oauth2LoginSuccessHandler;
-        this.securityContextEnricherFilter = securityContextEnricherFilter;
-    }
 
     // only providers can create/edit services and products
     private static final List<String> PROVIDER_WRITE_PATHS = List.of(

@@ -2,6 +2,8 @@ package io.bootify.silverhands.rest.user;
 
 import io.bootify.silverhands.model.dto.UserDTO;
 import io.bootify.silverhands.service.user.UserService;
+import lombok.RequiredArgsConstructor;
+
 import java.util.List;
 import java.util.UUID;
 import org.springframework.http.MediaType;
@@ -14,14 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping(value = "/api/providers", produces = MediaType.APPLICATION_JSON_VALUE)
 public class ProviderResource {
 
     private final UserService userService;
-
-    public ProviderResource(final UserService userService) {
-        this.userService = userService;
-    }
 
     @GetMapping
     public ResponseEntity<List<UserDTO>> searchProviders(

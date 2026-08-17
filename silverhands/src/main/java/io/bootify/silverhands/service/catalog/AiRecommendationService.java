@@ -3,6 +3,8 @@ package io.bootify.silverhands.service.catalog;
 import io.bootify.silverhands.domain.catalog.Service;
 import io.bootify.silverhands.model.dto.RecommendedServiceDTO;
 import io.bootify.silverhands.repos.catalog.ServiceRepository;
+import lombok.RequiredArgsConstructor;
+
 import java.util.List;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,13 +12,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 // fully qualified to avoid the clash between the Service entity and the annotation
 @org.springframework.stereotype.Service
+@RequiredArgsConstructor
 public class AiRecommendationService {
 
     private final ServiceRepository serviceRepository;
-
-    public AiRecommendationService(final ServiceRepository serviceRepository) {
-        this.serviceRepository = serviceRepository;
-    }
 
     @Transactional(readOnly = true)
     public List<RecommendedServiceDTO> findRecommendations(final String query, final int maxResults) {

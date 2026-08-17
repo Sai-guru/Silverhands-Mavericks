@@ -5,6 +5,8 @@ import io.bootify.silverhands.domain.user.User;
 import io.bootify.silverhands.model.dto.ProductDTO;
 import io.bootify.silverhands.repos.catalog.ProductRepository;
 import io.bootify.silverhands.util.exception.NotFoundException;
+import lombok.RequiredArgsConstructor;
+
 import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.UUID;
@@ -16,14 +18,11 @@ import org.springframework.web.server.ResponseStatusException;
 
 
 @Service
+@RequiredArgsConstructor
 @Transactional(rollbackFor = Exception.class)
 public class ProductService {
 
     private final ProductRepository productRepository;
-
-    public ProductService(final ProductRepository productRepository) {
-        this.productRepository = productRepository;
-    }
 
     @Transactional(readOnly = true)
     public List<ProductDTO> search(final String search, final String category, final String area) {

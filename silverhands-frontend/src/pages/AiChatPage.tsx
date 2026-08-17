@@ -28,18 +28,32 @@ export function AiChatPage() {
     }
   }
 
+  function handleClear() {
+    setMessage('')
+    setResult(null)
+    setError(null)
+  }
+
   return (
     <section className="panel">
       <h1>AI chat</h1>
       <p className="muted">POST /api/ai/chat</p>
+
       {error ? <p className="banner error">{error}</p> : null}
+
       <form className="stack" onSubmit={(event) => void onSubmit(event)}>
         <label>
           Message
-          <textarea value={message} required onChange={(event) => setMessage(event.target.value)} />
+          <textarea
+            value={message}
+            required
+            onChange={(event) => setMessage(event.target.value)}
+          />
         </label>
+
         <div className="grid">
-          <label>
+          {/* we dont need this for our ai chat */}
+          {/* <label>
             Input language
             <input value={inputLanguage} onChange={(event) => setInputLanguage(event.target.value)} />
           </label>
@@ -50,17 +64,24 @@ export function AiChatPage() {
           <label>
             Input type
             <input value={inputType} onChange={(event) => setInputType(event.target.value)} />
-          </label>
+          </label> */}
         </div>
+
         <button type="submit" disabled={busy}>
           Send
         </button>
+
+        <button type="button" onClick={handleClear} disabled={busy}>
+          Clear
+        </button>
       </form>
+
       {result ? (
         <div className="stack">
           <h2>Reply</h2>
           <p>{result.reply}</p>
-          {result.recommendedServices && result.recommendedServices.length > 0 ? (
+          {result.recommendedServices &&
+          result.recommendedServices.length > 0 ? (
             <ul>
               {result.recommendedServices.map((service) => (
                 <li key={service.serviceId ?? service.id}>

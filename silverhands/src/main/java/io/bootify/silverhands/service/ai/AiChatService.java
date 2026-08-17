@@ -5,25 +5,20 @@ import io.bootify.silverhands.model.dto.AiChatRequestDTO;
 import io.bootify.silverhands.model.dto.AiChatResponseDTO;
 import io.bootify.silverhands.model.dto.RecommendedServiceDTO;
 import io.bootify.silverhands.service.catalog.AiRecommendationService;
+import lombok.RequiredArgsConstructor;
+
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 
 
 @Service
+@RequiredArgsConstructor
 public class AiChatService {
 
     private final AiRecommendationService aiRecommendationService;
     private final AiTextClientService aiTextClientService;
     private final AiProviderProperties aiProviderProperties;
-
-    public AiChatService(final AiRecommendationService aiRecommendationService,
-            final AiTextClientService aiTextClientService,
-            final AiProviderProperties aiProviderProperties) {
-        this.aiRecommendationService = aiRecommendationService;
-        this.aiTextClientService = aiTextClientService;
-        this.aiProviderProperties = aiProviderProperties;
-    }
 
     public AiChatResponseDTO chatWithRecommendations(final AiChatRequestDTO requestDTO) {
         final List<RecommendedServiceDTO> recommendations =
