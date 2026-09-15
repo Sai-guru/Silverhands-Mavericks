@@ -21,4 +21,8 @@ public class AiChatRequestDTO {
     @NotBlank
     private String inputType;
 
+    // Optional: last N turns of conversation, formatted as "User: ...\nAI: ...\n"
+    // Frontend builds this string and sends it. Null is fine for first message.
+    private String history;
+
 }

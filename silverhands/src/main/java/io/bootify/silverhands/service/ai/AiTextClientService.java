@@ -1,9 +1,9 @@
 package io.bootify.silverhands.service.ai;
 
 import io.bootify.silverhands.config.ai.AiProviderProperties;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.HashMap;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
@@ -20,17 +20,33 @@ public class AiTextClientService {
         this.restClient = RestClient.builder().build();
     }
 
+    // Old single-string method kept for backward compat if anything else calls it
     public String generateText(final String prompt) {
+        return generateText(null, prompt);
+    }
+
+    // New: separate system prompt + user message
+    public String generateText(final String systemPrompt, final String userMessage) {
         if (aiProviderProperties.apiKey() == null || aiProviderProperties.apiKey().isBlank()) {
             return null;
         }
-        return generateWithOpenRouter(prompt);
+        return generateWithOpenRouter(systemPrompt, userMessage);
     }
 
-    private String generateWithOpenRouter(final String prompt) {
+    private String generateWithOpenRouter(final String systemPrompt, final String userMessage) {
+        final List<Map<String, String>> messages;
+        if (systemPrompt != null && !systemPrompt.isBlank()) {
+            messages = List.of(
+                    Map.of("role", "system", "content", systemPrompt),
+                    Map.of("role", "user", "content", userMessage)
+            );
+        } else {
+            messages = List.of(Map.of("role", "user", "content", userMessage));
+        }
+
         final Map<String, Object> payload = new HashMap<>();
         payload.put("model", aiProviderProperties.model());
-        payload.put("messages", List.of(Map.of("role", "user", "content", prompt)));
+        payload.put("messages", messages);
         payload.put("temperature", aiProviderProperties.temperature());
         payload.put("max_tokens", aiProviderProperties.maxTokens());
 
@@ -52,25 +68,15 @@ public class AiTextClientService {
     }
 
     private String extractOpenRouterText(final Map<?, ?> response) {
-        if (response == null) {
-            return null;
-        }
+        if (response == null) return null;
         final Object choicesObj = response.get("choices");
-        if (!(choicesObj instanceof List<?> choices) || choices.isEmpty()) {
-            return null;
-        }
+        if (!(choicesObj instanceof List<?> choices) || choices.isEmpty()) return null;
         final Object firstChoiceObj = choices.getFirst();
-        if (!(firstChoiceObj instanceof Map<?, ?> firstChoice)) {
-            return null;
-        }
+        if (!(firstChoiceObj instanceof Map<?, ?> firstChoice)) return null;
         final Object messageObj = firstChoice.get("message");
-        if (!(messageObj instanceof Map<?, ?> message)) {
-            return null;
-        }
+        if (!(messageObj instanceof Map<?, ?> message)) return null;
         final Object contentObj = message.get("content");
-        if (contentObj instanceof String text) {
-            return text;
-        }
+        if (contentObj instanceof String text) return text;
         return null;
     }
 

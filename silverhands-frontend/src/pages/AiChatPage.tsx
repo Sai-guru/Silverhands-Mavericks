@@ -1,12 +1,19 @@
 import { useState, type FormEvent } from 'react'
+import { useTranslation } from 'react-i18next'
 import { api } from '../api/http'
 import type { AiChatResponse } from '../api/types'
 
+function outputLanguageFor(lng: string): string {
+  if (lng === 'ta') return 'Tamil'
+  if (lng === 'hi') return 'Hindi'
+  return 'English'
+}
+
 export function AiChatPage() {
+  const { i18n } = useTranslation()
   const [message, setMessage] = useState('')
-  const [inputLanguage, setInputLanguage] = useState('en')
-  const [outputLanguage, setOutputLanguage] = useState('en')
   const [inputType, setInputType] = useState('text')
+  const [history, setHistory] = useState('')
   const [result, setResult] = useState<AiChatResponse | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [busy, setBusy] = useState(false)
@@ -15,12 +22,20 @@ export function AiChatPage() {
     event.preventDefault()
     setBusy(true)
     setError(null)
+    const userMessage = message
     try {
       const response = await api<AiChatResponse>('/api/ai/chat', {
         method: 'POST',
-        body: JSON.stringify({ message, inputLanguage, outputLanguage, inputType }),
+        body: JSON.stringify({
+          message: userMessage,
+          inputLanguage: 'auto',
+          outputLanguage: outputLanguageFor(i18n.language),
+          inputType,
+          history,
+        }),
       })
       setResult(response)
+      setHistory((prev) => `${prev}User: ${userMessage}\nAI: ${response.reply}\n\n`)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Chat failed')
     } finally {
@@ -32,6 +47,7 @@ export function AiChatPage() {
     setMessage('')
     setResult(null)
     setError(null)
+    setHistory('')
   }
 
   return (

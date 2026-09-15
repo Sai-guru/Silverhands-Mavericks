@@ -8,7 +8,7 @@
   --accent-ink: #fff;
   --ok: #1f7a4d;
   --err: #b42318;
-  --sans: "IBM Plex Sans", "Segoe UI", sans-serif;
+  --sans: "IBM Plex Sans", "Noto Sans Tamil", "Segoe UI", sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, monospace;
   font: 16px/1.45 var(--sans);
   color: var(--ink);
@@ -40,11 +40,19 @@ a { color: var(--accent); }
 .center { padding: 48px; text-align: center; }
 
 .auth {
+   position: relative;
   min-height: 100svh;
   display: grid;
   place-items: center;
   padding: 24px;
 }
+
+.language-selector--corner {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+}
+
 
 .card, .panel {
   background: var(--panel);

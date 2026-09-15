@@ -35,8 +35,8 @@ export function LoginPage() {
   return (
     <main className="auth">
       <div className="card">
-        <div className="language-selector">
-          {/* <select
+        <div className="language-selector language-selector--corner">
+          <select
             value={i18n.language}
             onChange={(event) => void i18n.changeLanguage(event.target.value)}
             aria-label={t('common.language')}
@@ -44,7 +44,7 @@ export function LoginPage() {
             <option value="en">English</option>
             <option value="ta">தமிழ்</option>
             <option value="hi">हिन्दी</option>
-          </select> */}
+          </select>
         </div>
 
         <p className="eyebrow">SilverHands</p>
